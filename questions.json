@@ -1,40 +1,40 @@
 {
-    "questions": [
-      {
-        "name": "hoisting",
-        "type": "list",
-        "message": "What is hoisting in JavaScript?",
-        "choices": [
-          "Moving all declarations to the bottom of the scope",
-          "Moving all declarations to the top of the scope",
-          "Moving all assignments to the top of the scope",
-          "Moving all functions to a separate scope"
-        ],
-        "correct": 1
-      },
-      {
-        "name": "closure",
-        "type": "list",
-        "message": "What is a closure in JavaScript?",
-        "choices": [
-          "A way to close the browser window",
-          "A function that has access to variables in its outer scope",
-          "A way to end a loop",
-          "A method to close database connections"
-        ],
-        "correct": 1
-      },
-      {
-        "name": "equality",
-        "type": "list",
-        "message": "What is the difference between == and === in JavaScript?",
-        "choices": [
-          "They are exactly the same",
-          "=== is faster than ==",
-          "== performs type coercion while === checks value and type",
-          "=== only works with numbers"
-        ],
-        "correct": 2
-      }
-    ]
-  }
+  "questions": [
+    {
+      "name": "hoisting",
+      "type": "list",
+      "message": "What is hoisting in JavaScript?",
+      "choices": [
+        "Moving all declarations to the bottom of the scope",
+        "Moving all declarations to the top of the scope",
+        "Moving all assignments to the top of the scope",
+        "Moving all functions to a separate scope"
+      ],
+      "correct": 1
+    },
+    {
+      "name": "closure",
+      "type": "list",
+      "message": "What is a closure in JavaScript?",
+      "choices": [
+        "A way to close the browser window",
+        "A function that has access to variables in its outer scope",
+        "A way to end a loop",
+        "A method to close database connections"
+      ],
+      "correct": 1
+    },
+    {
+      "name": "equality",
+      "type": "list",
+      "message": "What is the difference between == and === in JavaScript?",
+      "choices": [
+        "They are exactly the same",
+        "=== is faster than ==",
+        "== performs type coercion while === checks value and type",
+        "=== only works with numbers"
+      ],
+      "correct": 2
+    }
+  ]
+}
