@@ -2,7 +2,7 @@
 
 # Quiz-Parser
 
-A command-line quiz app that loads quiz questions from JSON files.
+A command-line quiz app that loads questions from JSON files.
 
 <br>
 
