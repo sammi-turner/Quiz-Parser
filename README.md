@@ -47,7 +47,7 @@ to run a specific json file.
 
 ## Creating Custom Quizzes
 
-Create your own quiz by making a new questions.json file. Follow this format:
+Create your own quizzes by writing json files with queestions in this format
 
 ```json
 {
