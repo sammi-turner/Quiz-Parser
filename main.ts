@@ -15,7 +15,6 @@ interface QuizData {
   questions: Question[];
 }
 
-let playerName: string;
 let score = 0;
 
 const loadQuestions = async (filename: string): Promise<Question[]> => {
@@ -31,19 +30,6 @@ const loadQuestions = async (filename: string): Promise<Question[]> => {
     }
     Deno.exit(1);
   }
-};
-
-const welcome = async () => {
-  console.clear();
-  console.log(chalk.blue("Welcome to Quiz Parser!\n"));
-  const { name } = await inquirer.prompt({
-    name: "name",
-    type: "input",
-    message: "What is your name?",
-    default: "Player",
-  });
-  playerName = name;
-  console.log(chalk.yellow(`\nHello, ${playerName}! Let's begin.\n`));
 };
 
 const handleAnswer = async (isCorrect: boolean) => {
@@ -70,11 +56,10 @@ const askQuestion = async (question: Question) => {
 };
 
 const gameOver = (totalQuestions: number) => {
-  console.log(chalk.bgBlue(`\nThanks for playing, ${playerName}!`));
-  console.log(chalk.blue(`Your final score: ${score}/${totalQuestions}`));
+  console.log(chalk.blue(`Your final score is : ${score}/${totalQuestions}`));
   if (score === totalQuestions) {
-    console.log(chalk.green("Perfect score! 🏆"));
-  } else if (score >= totalQuestions / 2) {
+    console.log(chalk.green("Perfect! 🏆"));
+  } else if (score >= (totalQuestions * 2) / 3) {
     console.log(chalk.yellow("Good job! Keep learning! 📚"));
   } else {
     console.log(chalk.red("Keep practicing! You'll get better! 💪"));
@@ -100,12 +85,12 @@ const main = async () => {
     }
     quizFile = args[0];
   }
+  console.log();
   const questions = await loadQuestions(quizFile);
   if (questions.length === 0) {
     console.error(chalk.red("Error: No questions found in quiz file"));
     Deno.exit(1);
   }
-  await welcome();
   for (const question of questions) {
     await askQuestion(question);
   }

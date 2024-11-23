@@ -1,8 +1,9 @@
 <br>
 
-# Quiz-Parser
+# Quiz Parser
 
-A command-line quiz app that loads questions from JSON files.
+A command-line quiz app built with Deno and TypeScript that loads quiz questions
+from JSON files.
 
 <br>
 
@@ -11,13 +12,14 @@ A command-line quiz app that loads questions from JSON files.
 - Interactive command-line interface with colorful output
 - Custom quiz content through simple JSON files
 - Spinner animations for answer feedback
-- Score tracking and end-game messages
+- Score tracking and personalized end-game messages
+- Written in TypeScript for type safety
 
 <br>
 
-## Prerequisites
+## Prerequisite
 
-Deno installed on your system
+Deno [installed](https://docs.deno.com/runtime/getting_started/installation/) on your machine.
 
 <br>
 
@@ -47,7 +49,7 @@ to run a specific json file.
 
 ## Creating Custom Quizzes
 
-Create your own quizzes by writing json files with questions in this format
+Create your own quiz by making a new questions.json file. Follow this format:
 
 ```json
 {
@@ -62,7 +64,7 @@ Create your own quizzes by writing json files with questions in this format
         "Third option",
         "Fourth option"
       ],
-      "correct": 2  // Index of correct answer (0-based)
+      "correct": 2 // Index of correct answer (0-based)
     }
   ]
 }
