@@ -7,16 +7,6 @@ from JSON files.
 
 <br>
 
-## Features.
-
-- Interactive command-line interface with colorful output
-- Custom quiz content through simple JSON files
-- Spinner animations for answer feedback
-- Score tracking and personalized end-game messages
-- Written in TypeScript for type safety
-
-<br>
-
 ## Prerequisite
 
 Deno [installed](https://docs.deno.com/runtime/getting_started/installation/) on your machine.
