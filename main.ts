@@ -8,14 +8,36 @@ interface Question {
   type: "list";
   message: string;
   choices: string[];
-  correct: number;
+  correctAnswer: string;
 }
 
 interface QuizData {
   questions: Question[];
 }
 
+interface ShuffledQuestion {
+  question: Question;
+  shuffledChoices: string[];
+}
+
 let score = 0;
+
+const shuffleArray = <T>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const prepareShuffledQuestion = (question: Question): ShuffledQuestion => {
+  const shuffledChoices = shuffleArray([...question.choices]);
+  return {
+    question,
+    shuffledChoices,
+  };
+};
 
 const loadQuestions = async (filename: string): Promise<Question[]> => {
   try {
@@ -32,27 +54,37 @@ const loadQuestions = async (filename: string): Promise<Question[]> => {
   }
 };
 
-const handleAnswer = async (isCorrect: boolean) => {
+const handleAnswer = async (
+  isCorrect: boolean,
+  userAnswer: string,
+  correctAnswer: string
+) => {
   const spinner = createSpinner("Checking answer...").start();
   await delay(1000);
   if (isCorrect) {
-    spinner.success({ text: chalk.green("Correct! 🎉") });
+    spinner.success({ text: chalk.green("Correct! 🎉\n") });
     score++;
   } else {
-    spinner.error({ text: chalk.red("Wrong! 😢") });
+    spinner.error({ 
+      text: chalk.red(`Wrong! 😢\nYou answered: "${userAnswer}"\nCorrect answer was: "${correctAnswer}"`)
+    });
   }
 };
 
 const askQuestion = async (question: Question) => {
+  const shuffled = prepareShuffledQuestion(question);
   const answer = await inquirer.prompt({
     name: "quiz",
     type: question.type,
     message: question.message,
-    choices: question.choices,
+    choices: shuffled.shuffledChoices,
   });
-  await handleAnswer(
-    question.choices.indexOf(answer.quiz) === question.correct,
-  );
+
+  const selectedAnswer = answer.quiz;
+  const isCorrect = selectedAnswer === question.correctAnswer;
+  console.log("Selected answer:", selectedAnswer);
+  console.log("Is correct?", isCorrect);
+  await handleAnswer(isCorrect, selectedAnswer, question.correctAnswer);
 };
 
 const gameOver = (totalQuestions: number) => {

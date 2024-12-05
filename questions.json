@@ -10,7 +10,7 @@
         "Moving all assignments to the top of the scope",
         "Moving all functions to a separate scope"
       ],
-      "correct": 1
+      "correctAnswer": "Moving all declarations to the top of the scope"
     },
     {
       "name": "closure",
@@ -22,7 +22,7 @@
         "A way to end a loop",
         "A method to close database connections"
       ],
-      "correct": 1
+      "correctAnswer": "A function that has access to variables in its outer scope"
     },
     {
       "name": "equality",
@@ -34,7 +34,7 @@
         "== performs type coercion while === checks value and type",
         "=== only works with numbers"
       ],
-      "correct": 2
+      "correctAnswer": "== performs type coercion while === checks value and type"
     }
   ]
 }

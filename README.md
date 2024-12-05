@@ -7,6 +7,16 @@ from JSON files.
 
 <br>
 
+## Features.
+
+- Interactive command-line interface with colorful output
+- Custom quiz content through simple JSON files
+- Spinner animations for answer feedback
+- Score tracking and personalized end-game messages
+- Written in TypeScript for type safety
+
+<br>
+
 ## Prerequisite
 
 Deno [installed](https://docs.deno.com/runtime/getting_started/installation/) on your machine.
@@ -39,7 +49,7 @@ to run a specific json file.
 
 ## Creating Custom Quizzes
 
-Create your own quiz by making a new json file with questions in this format
+Create your own quiz by making a new questions.json file. Follow this format:
 
 ```json
 {
@@ -54,7 +64,7 @@ Create your own quiz by making a new json file with questions in this format
         "Third option",
         "Fourth option"
       ],
-      "correct": 2 // Index of correct answer (0-based)
+      "correctAnswer": "Second option"
     }
   ]
 }
