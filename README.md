@@ -9,11 +9,10 @@ from JSON files.
 
 ## Features.
 
-- Interactive command-line interface with colorful output
+- Interactive command-line interface with coloured output
 - Custom quiz content through simple JSON files
 - Spinner animations for answer feedback
-- Score tracking and personalized end-game messages
-- Written in TypeScript for type safety
+- Score tracking
 
 <br>
 
